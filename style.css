@@ -1,0 +1,104 @@
+body {
+    background-color: #e5e5e5;
+    font-family: 'Roboto', sans-serif;
+}
+* {
+    box-sizing: border-box;
+}
+strong {
+    font-weight: 700;
+}
+
+.barrasuperior {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+}
+.top {
+    background-color: white;
+    width: 375px;
+    height: 80px;
+    margin: 0 auto;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 4px 6px 0px #0000000D;
+}
+.top ion-icon {
+    font-size: 42px;
+}
+
+.barrainferior {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+}
+.bottom {
+    background-color: white;
+    width: 375px;
+    height: 80px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    box-shadow: 0px -4px 6px 0px #0000000D;
+}
+textarea {
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    outline: none;
+    resize: none;
+    border: none;
+}
+textarea::placeholder {
+    color: black;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 18px;
+}
+.enter-icon {
+    font-size: 26px;
+}
+
+.conteudo {
+    width: 375px;
+    height: 620px;
+    margin: 0 auto;
+    margin-top: 100px;
+    overflow: hidden;
+    background-color: #eeeeee;
+}
+
+.status, .public, .reserved {
+    width: 375px;
+    height: auto;
+    padding: 15px 10px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.status {
+    background-color: #dcdcdc;
+}
+.public {
+    background-color: #ffffff;
+}
+.reserved {
+    background-color: #FFDEDE;
+}
+.time {
+    color: #aaaaaa;
+    margin: 0px 5px 0px 0px;
+}
+.remetente, .destinatario {
+    font-weight: 700;
+    margin: 0px 5px 0px 5px;
+}
