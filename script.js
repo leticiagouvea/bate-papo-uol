@@ -1,7 +1,10 @@
 let yourName;
+let receiver = "Todos";
+let typeText = "message";
 
 whatsYourName();
 function whatsYourName() {
+
     yourName = prompt('Qual é o seu lindo nome?');
 
     const nameLogin = {
@@ -9,7 +12,6 @@ function whatsYourName() {
     };
 
     const promise = axios.post('https://mock-api.driven.com.br/api/v6/uol/participants', nameLogin);
-
     promise.then(enter);
     promise.catch(notEnter);
 }
@@ -23,12 +25,14 @@ function enter() {
 }
 
 function notEnter(error) {
-    if(error.reponse.status === 400) {
+
+    if (error.reponse.status === 400) {
         alert('Esse usuário já existe. Digite um novo nome.');
     }
 }
 
 function keepConnected() {
+
     const nameLogin = {
         name: yourName
     };
@@ -37,8 +41,8 @@ function keepConnected() {
 }
 
 function fetchMessages() {
-    const promise = axios.get('https://mock-api.driven.com.br/api/v6/uol/messages');
 
+    const promise = axios.get('https://mock-api.driven.com.br/api/v6/uol/messages');
     promise.then(renderMessage);
 }
 
@@ -55,9 +59,9 @@ function renderMessage(response) {
             
             container.innerHTML += `
             <div class="status">
-                <span class="time">${messages[i].time}</span>
-                <span class="remetente">${messages[i].from}</span>
-                <span class="message">${messages[i].text}</span>
+                <p class="time">(${messages[i].time})</p>
+                <p class="from">${messages[i].from}</p>
+                <p class="message">${messages[i].text}</p>
             </div>
             `
         } 
@@ -66,10 +70,10 @@ function renderMessage(response) {
 
             container.innerHTML += `
             <div class="public">
-                <span class="time">${messages[i].time}</span>
-                <span class="remetente">${messages[i].from}</span>para
-                <span class="destinatario">${messages[i].to}</span>
-                <span class="message">${messages[i].text}</span>
+                <p class="time">(${messages[i].time})</p>
+                <p class="from">${messages[i].from}</p>para
+                <p class="to">${messages[i].to}</p>
+                <p class="message">${messages[i].text}</p>
             </div>
             `
         }
@@ -78,14 +82,48 @@ function renderMessage(response) {
 
             container.innerHTML += `
             <div class="reserved">
-                <span class="time">${messages[i].time}</span>
-                <span class="remetente">${messages[i].from}</span>para
-                <span class="destinatario">${messages[i].to}</span>
-                <span class="message">${messages[i].text}</span>
+                <p class="time">(${messages[i].time})</p>
+                <p class="from">${messages[i].from}</p>para
+                <p class="to">${messages[i].to}</p>
+                <p class="message">${messages[i].text}</p>
             </div>
             `
         }
     }
+    scrollBack();
+}
 
+function scrollBack() {
     const scroll = document.querySelector('.conteudo div:last-child').scrollIntoView();
 }
+
+function sendMessage() {
+
+    const chat = document.querySelector('.send-message textarea').value;
+    const clean = document.querySelector('textarea');
+
+    const postChat = {
+        from: yourName,
+        to: receiver,
+        text: chat,
+        type: typeText
+    }
+
+    const promise = axios.post('https://mock-api.driven.com.br/api/v6/uol/messages', postChat);
+    promise.catch(offline) 
+
+    clean.value = "";
+}
+
+function offline() {
+    alert('Você está offline. Faça o login novamente')
+    window.location.reload()
+}
+
+document.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+
+        const button = document.querySelector('.enter-icon');
+        button.click();
+    }
+});
