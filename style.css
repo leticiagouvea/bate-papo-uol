@@ -68,9 +68,10 @@ textarea::placeholder {
 
 .conteudo {
     width: 375px;
-    height: 620px;
+    height: auto;
     margin: 0 auto;
     margin-top: 100px;
+    margin-bottom: 100px;
     overflow: hidden;
     background-color: #eeeeee;
 }
@@ -84,7 +85,6 @@ textarea::placeholder {
     font-size: 14px;
     margin-bottom: 5px;
 }
-
 .status {
     background-color: #dcdcdc;
 }

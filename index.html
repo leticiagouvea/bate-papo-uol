@@ -24,33 +24,17 @@
     </div>
 
     <div class="conteudo">
-        <span class="status">
-            <span class="time">(09:21:98)</span>
-            <span class="remetente">João</span>
-            <span class="message">entrou na sala...</span>
-        </span>
-        <span class="public">
-            <span class="time">(09:22:42)</span>
-            <span class="remetente">João</span>para
-            <span class="destinatario">Todos:</span>
-            <span class="message">Bom dia!</span>
-        </span>
-        <span class="reserved">
-            <span class="time">(09:23:00)</span>
-            <span class="remetente">João</span>para
-            <span class="destinatario">Maria:</span>
-            <span class="message">Oi gatinha, quer tc?</span>
-        </span>
     </div>
 
     <div class="barrainferior">
         <div class="bottom">
             <div class="send-message"><textarea placeholder = "Escreva aqui..."></textarea></div>
-            <div class="enter-icon"><ion-icon name="paper-plane-outline"></ion-icon></div>
+            <div class="enter-icon" onclick="sendMessage()"><ion-icon name="paper-plane-outline"></ion-icon></div>
         </div>
     </div>
 
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
