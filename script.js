@@ -25,10 +25,8 @@ function enter() {
 }
 
 function notEnter(error) {
-
-    if (error.reponse.status === 400) {
         alert('Esse usuário já existe. Digite um novo nome.');
-    }
+        whatsYourName();
 }
 
 function keepConnected() {
@@ -107,17 +105,17 @@ function sendMessage() {
         to: receiver,
         text: chat,
         type: typeText
-    }
+    };
 
     const promise = axios.post('https://mock-api.driven.com.br/api/v6/uol/messages', postChat);
-    promise.catch(offline) 
+    promise.catch(offline);
 
     clean.value = "";
 }
 
 function offline() {
-    alert('Você está offline. Faça o login novamente')
-    window.location.reload()
+    alert('Você está offline. Faça o login novamente');
+    window.location.reload();
 }
 
 document.addEventListener("keypress", (event) => {
