@@ -76,7 +76,7 @@ function renderMessage(response) {
             `
         }
 
-        if (messages[i].type === 'private_message') {
+        if (messages[i].type === 'private_message' && messages[i].to === yourName) {
 
             container.innerHTML += `
             <div class="reserved">
